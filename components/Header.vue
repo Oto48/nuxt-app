@@ -26,3 +26,26 @@ export default {
     }
 }
 </script>
+
+<style>
+nav {
+    background-color: rgb(44, 40, 40);
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 25px;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+</style>

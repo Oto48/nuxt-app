@@ -6,8 +6,8 @@
             <input type="text" v-model="name">
             <label>Password</label>
             <input type="password" v-model="password">
+            <button @click="loginHandler">Sign Up</button>
         </form>
-        <button @click="loginHandler">Log In</button>
     </div>
 </template>
   
@@ -22,6 +22,7 @@ export default {
     },
     methods: {
         loginHandler() {
+            e.preventDefault();
             let taskList;
             const user = {'name': this.name, 'password': this.password};
             let localItems = JSON.parse(localStorage.getItem("users"));
