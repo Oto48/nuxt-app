@@ -27,7 +27,8 @@ export default {
             localItems === null ? 'undefined':
             localItems.forEach((x) => {
                 if(JSON.stringify(x) == JSON.stringify(user)) {
-                    localStorage.setItem("users", JSON.stringify(taskList));
+                    localStorage.setItem("token", true);
+                    this.$store.commit('editToken', true);
                     this.$router.push('/home');
                 }
             }); 

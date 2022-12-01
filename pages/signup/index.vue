@@ -8,9 +8,6 @@
             <input type="password" v-model="password">
         </form>
         <button @click="loginHandler">Log In</button>
-        <div>
-            {{$store.state.users}}
-        </div>
     </div>
 </template>
   
@@ -25,8 +22,6 @@ export default {
     },
     methods: {
         loginHandler() {
-            // this.$store.commit('ADD_USER', user);
-            // console.log(this.$store.state.users);
             let taskList;
             const user = {'name': this.name, 'password': this.password};
             let localItems = JSON.parse(localStorage.getItem("users"));
@@ -34,6 +29,7 @@ export default {
             taskList.push(user);
             localStorage.setItem("users", JSON.stringify(taskList));
             this.$router.push('/');
+            // this.$store.commit('editToken', localStorage.getItem("token"));
         }
     }
 }
