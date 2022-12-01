@@ -1,11 +1,14 @@
 <template>
-    <form>
-        <label>Email</label>
-        <input type="email" v-model="email">
-        <label>Password</label>
-        <input type="password" v-model="password">
+    <div>
+        <h1>Login</h1>
+        <form>
+            <label>Name</label>
+            <input type="text" v-model="name">
+            <label>Password</label>
+            <input type="password" v-model="password">
+        </form>
         <button @click="loginHandler">Log In</button>
-    </form>
+    </div>
 </template>
   
 <script>
@@ -13,14 +16,15 @@ export default {
     name: 'Login',
     data() {
         return {
-            email: null,
-            password: null
+            name: '',
+            password: ''
         }
     },
     methods: {
         loginHandler() {
-            const login = {'email': this.email, 'password': this.password}
-            console.log(login)
+            const user = {'name': this.name, 'password': this.password};
+            this.$store.commit('ADD_USER', user);
+            // console.log(this.$store.state.users[0]);
         }
     }
 }

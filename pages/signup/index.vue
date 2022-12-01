@@ -1,10 +1,11 @@
 <template>
     <div>
+        <h1>Signup</h1>
         <form>
-        <label>Name</label>
-        <input type="text" v-model="name">
-        <label>Password</label>
-        <input type="password" v-model="password">
+            <label>Name</label>
+            <input type="text" v-model="name">
+            <label>Password</label>
+            <input type="password" v-model="password">
         </form>
         <button @click="loginHandler">Log In</button>
         <div>
@@ -24,9 +25,19 @@ export default {
     },
     methods: {
         loginHandler() {
-            const user = {'name': this.name, 'password': this.password}
-            this.$store.commit('ADD_USER', user)
-            console.log(this.$store.state.users[0].name)
+            let taskList;
+            const user = {'name': this.name, 'password': this.password};
+            // this.$store.commit('ADD_USER', user);
+            // console.log(this.$store.state.users);
+            let localItems = JSON.parse(localStorage.getItem("users"));
+            if(localItems === null) {
+                taskList = [];
+            }else {
+                taskList = localItems;
+            }
+            taskList.push(user)
+            localStorage.setItem("users", JSON.stringify(taskList));
+            this.$router.push('/')
         }
     }
 }

@@ -6,6 +6,19 @@ export default {
     port: 8080,
   },
 
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {url: '/sessions', method: 'post', propertyName: 'token' },
+          logout: false,
+          user: {url: '/user/user', method: 'get', propertyName: 'data'},
+        },
+      },
+    },
+  },
+
+
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
