@@ -23,8 +23,14 @@ export default {
     methods: {
         loginHandler() {
             const user = {'name': this.name, 'password': this.password};
-            this.$store.commit('ADD_USER', user);
-            // console.log(this.$store.state.users[0]);
+            let localItems = JSON.parse(localStorage.getItem("users"));
+            localItems === null ? 'undefined':
+            localItems.forEach((x) => {
+                if(JSON.stringify(x) == JSON.stringify(user)) {
+                    localStorage.setItem("users", JSON.stringify(taskList));
+                    this.$router.push('/home');
+                }
+            }); 
         }
     }
 }

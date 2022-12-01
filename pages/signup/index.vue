@@ -25,19 +25,15 @@ export default {
     },
     methods: {
         loginHandler() {
-            let taskList;
-            const user = {'name': this.name, 'password': this.password};
             // this.$store.commit('ADD_USER', user);
             // console.log(this.$store.state.users);
+            let taskList;
+            const user = {'name': this.name, 'password': this.password};
             let localItems = JSON.parse(localStorage.getItem("users"));
-            if(localItems === null) {
-                taskList = [];
-            }else {
-                taskList = localItems;
-            }
-            taskList.push(user)
+            localItems === null ? taskList = [] : taskList = localItems;
+            taskList.push(user);
             localStorage.setItem("users", JSON.stringify(taskList));
-            this.$router.push('/')
+            this.$router.push('/');
         }
     }
 }
