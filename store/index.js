@@ -10,12 +10,11 @@
 
 
 export const state = () => ({
-    // token: localStorage.getItem("token")
     token: localStorage.getItem("token")
 })
 
 export const mutations = {
     editToken(state, token) {
-        state.token =  token;
+        state.token = token;
     }
 }

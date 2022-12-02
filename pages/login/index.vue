@@ -23,13 +23,12 @@ export default {
     methods: {
         loginHandler(e) {
             e.preventDefault();
-            const user = {'name': this.name, 'password': this.password};
             let localItems = JSON.parse(localStorage.getItem("users"));
             localItems === null ? 'undefined':
-            localItems.forEach((x) => {
-                if(JSON.stringify(x) == JSON.stringify(user)) {
-                    localStorage.setItem("token", 'true');
-                    this.$store.commit('editToken', 'true');
+            localItems.forEach((user) => {
+                if(user.name == this.name && user.password == this.password) {
+                    localStorage.setItem("token", user.role);
+                    this.$store.commit('editToken', user.role);
                     this.$router.push('/home');
                 }
             }); 
