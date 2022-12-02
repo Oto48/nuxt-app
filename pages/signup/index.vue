@@ -32,10 +32,27 @@ export default {
             let taskList;
             const user = {'name': this.name, 'password': this.password, 'role': this.role};
             let localItems = JSON.parse(localStorage.getItem("users"));
-            localItems === null ? taskList = [] : taskList = localItems;
-            taskList.push(user);
-            localStorage.setItem("users", JSON.stringify(taskList));
-            this.$router.push('/');
+            if(localItems === null) {
+                taskList = [];
+                taskList.push(user);
+                localStorage.setItem("users", JSON.stringify(taskList));
+                this.$router.push('/');
+            } else {
+                taskList = localItems;
+                let getUser;
+                localItems.forEach((user) => {
+                    if(user.name == this.name) {
+                        getUser = true;
+                    }
+                });
+                if(getUser) {
+                    alert("email is used !");
+                } else {
+                    taskList.push(user);
+                    localStorage.setItem("users", JSON.stringify(taskList));
+                    this.$router.push('/');
+                }
+            }
         }
     }
 }

@@ -1,10 +1,10 @@
 <template>
     <nav>
         <ul>
-            <li v-if="$store.state.token" @click="logOut">
+            <li v-if="$store.state.token">
                 <NuxtLink to="/profile">Profile</NuxtLink>
             </li>
-            <li v-if="$store.state.token" @click="logOut">
+            <li v-if="$store.state.token">
                 <NuxtLink to="/rooms">Rooms</NuxtLink>
             </li>
             <li v-if="$store.state.token == 'admin'" @click="logOut">
