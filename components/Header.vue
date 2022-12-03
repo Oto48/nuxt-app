@@ -7,10 +7,10 @@
             <li v-if="$store.state.token">
                 <NuxtLink to="/rooms">Rooms</NuxtLink>
             </li>
-            <li v-if="$store.state.token == 'admin'" @click="logOut">
+            <li v-if="$store.state.token == 'admin'">
                 <NuxtLink to="/users">Users</NuxtLink>
             </li>
-            <li v-if="$store.state.token == 'admin'" @click="logOut">
+            <li v-if="$store.state.token == 'admin'">
                 <NuxtLink to="/desks">Desks</NuxtLink>
             </li>
         </ul>
@@ -43,7 +43,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 nav {
     background-color: rgb(44, 40, 40);
     display: flex;
