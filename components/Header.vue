@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav class="bg-black">
         <ul>
             <li v-if="$store.state.token">
                 <NuxtLink to="/profile">Profile</NuxtLink>
@@ -45,7 +45,6 @@ export default {
 
 <style scoped>
 nav {
-    background-color: rgb(44, 40, 40);
     display: flex;
     justify-content: space-between;
     padding: 5px 25px;

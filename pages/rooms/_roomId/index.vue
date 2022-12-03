@@ -1,12 +1,18 @@
 <template>
-    <div>
+    <div class="container">
         <h1>Room {{ $route.params }}</h1>
-        <h1>{{$store.state.rooms[roomId].desks}}</h1>
-        <ul v-for="(room, index) in $store.state.rooms[roomId].desks" :key="index">
-            <li>
+        <!-- <h1>{{$store.state.rooms[roomId].desks}}</h1> -->
+        <div class="card">
+            <div v-for="(desk, index) in $store.state.rooms[roomId].desks" :key="index" class="capitalize bg-blue">
+                <h3>User: {{desk.user}}</h3>
+                <h3>Price: {{desk.price}}</h3>
+                <h3>Size: {{desk.size}}</h3>
+                <h3>Position: {{desk.position}}</h3>
+            </div>
+            <!-- <li>
                 <NuxtLink :to="`/rooms/${$route.params.roomId}/desks/${index}`">{{room}}</NuxtLink>
-            </li>
-        </ul>
+            </li> -->
+        </div>
     </div>
 </template>
   
@@ -20,3 +26,20 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+.card {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card div {
+    min-width: 300px;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+</style>
