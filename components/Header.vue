@@ -1,31 +1,31 @@
 <template>
     <nav class="bg-black">
         <ul>
-            <li v-if="$store.state.token">
+            <li v-if="this.user.role">
                 <NuxtLink to="/profile">Profile</NuxtLink>
             </li>
-            <li v-if="$store.state.token">
+            <li v-if="this.user.role">
                 <NuxtLink to="/rooms">Rooms</NuxtLink>
             </li>
-            <li v-if="$store.state.token == 'admin'">
+            <li v-if="this.user.role == 'admin'">
                 <NuxtLink to="/users">Users</NuxtLink>
             </li>
-            <li v-if="$store.state.token == 'admin'">
+            <li v-if="this.user.role">
                 <NuxtLink to="/desks">Desks</NuxtLink>
             </li>
         </ul>
         <ul>
-            <li v-if="!$store.state.token">
+            <li v-if="!this.user.role">
                 <NuxtLink to="/login">Login</NuxtLink>
             </li>
-            <li v-if="$store.state.token" @click="logOut">
+            <li v-if="this.user.role" @click="logOut">
                 <NuxtLink to="/">Logout</NuxtLink>
             </li>
-            <li v-if="!$store.state.token">
+            <li v-if="!this.user.role">
                 <NuxtLink to="/signup">Signup</NuxtLink>
             </li>
-            <li style="color:white" v-if="$store.state.token">
-                <NuxtLink to="/">{{$store.state.token}}</NuxtLink>
+            <li style="color:white" v-if="this.user.role">
+                <NuxtLink to="/">{{this.user.role}}</NuxtLink>
             </li>
         </ul>
     </nav>
@@ -34,6 +34,11 @@
 <script>
 export default {
     name: 'Header',
+    data() {
+        return {
+            user: localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : "",
+        }
+    },
     methods: {
         logOut() {
             localStorage.setItem("token", '');

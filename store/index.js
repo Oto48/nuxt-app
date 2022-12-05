@@ -11,22 +11,28 @@
 
 export const state = () => ({
     token: localStorage.getItem("token"),
-    rooms: [
+    rooms: localStorage.getItem("rooms") ? JSON.parse(localStorage.getItem("rooms")) : [
         {
             size: "small",
             full: false,
             desks: [
                 {
-                    user: "user 1",
+                    user: "",
                     price: 20,
                     size: "small",
-                    position: "window"
+                    position: "Next to Window"
                 },
                 {
-                    user: "user 2",
+                    user: "",
                     price: 20,
                     size: "small",
-                    position: "window"
+                    position: "Next to Door"
+                },
+                {
+                    user: "",
+                    price: 20,
+                    size: "small",
+                    position: "Center"
                 }
             ]
         },
@@ -35,10 +41,16 @@ export const state = () => ({
             full: false,
             desks: [
                 {
-                    user: "user 2",
+                    user: "",
                     price: 20,
                     size: "small",
-                    position: "window"
+                    position: "Next to Window"
+                },
+                {
+                    user: "",
+                    price: 20,
+                    size: "small",
+                    position: "Center"
                 }
             ]
         }
@@ -48,5 +60,10 @@ export const state = () => ({
 export const mutations = {
     editToken(state, token) {
         state.token = token;
+    },
+
+    editDesk(state, {roomId, index}) {
+        state.rooms[roomId].desks[index].user = JSON.parse(state.token).name;
+        localStorage.setItem("rooms", JSON.stringify(state.rooms));
     }
 }

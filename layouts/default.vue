@@ -59,7 +59,6 @@ body{
 }
 
 .container {
-    width: 100%;
     padding-right: 25px;
     padding-left: 25px;
     margin-right: auto;
@@ -82,6 +81,19 @@ input {
     height: 40px;
     width: 100%;
     font-size: 19px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+label {
+    width: 100%;
+    font-size: 20px;
+}
+
+select {
+    outline: none;
+    width: 100%;
+    height: 40px;
 }
 
 button {

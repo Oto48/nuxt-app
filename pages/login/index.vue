@@ -2,8 +2,8 @@
     <div>
         <h1>Login</h1>
         <form>
-            <label>Name</label>
-            <input type="text" v-model="name">
+            <label>Email</label>
+            <input type="text" v-model="email">
             <label>Password</label>
             <input type="password" v-model="password">
             <button @click="loginHandler">Log In</button>
@@ -16,7 +16,7 @@ export default {
     name: 'Login',
     data() {
         return {
-            name: '',
+            email: '',
             password: ''
         }
     },
@@ -26,9 +26,11 @@ export default {
             let localItems = JSON.parse(localStorage.getItem("users"));
             localItems === null ? 'undefined':
             localItems.forEach((user) => {
-                if(user.name == this.name && user.password == this.password) {
-                    localStorage.setItem("token", user.role);
-                    this.$store.commit('editToken', user.role);
+                if(user.email == this.email && user.password == this.password) {
+                    const role = user.role;
+                    const name = user.name;
+                    localStorage.setItem("token", JSON.stringify({role, name}));
+                    this.$store.commit('editToken', {role, name});
                     this.$router.push('/home');
                 }
             }); 
