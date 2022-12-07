@@ -10,9 +10,10 @@
 
 
 export const state = () => ({
-    token: localStorage.getItem("token"),
+    token: localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : "",
     rooms: localStorage.getItem("rooms") ? JSON.parse(localStorage.getItem("rooms")) : [
         {
+            manager: "manager@gmail.com",
             size: "small",
             full: false,
             desks: [
@@ -37,6 +38,7 @@ export const state = () => ({
             ]
         },
         {
+            manager: "",
             size: "big",
             full: false,
             desks: [
@@ -63,7 +65,12 @@ export const mutations = {
     },
 
     editDesk(state, {roomId, index}) {
-        state.rooms[roomId].desks[index].user = JSON.parse(state.token).name;
+        state.rooms[roomId].desks[index].user = state.token.email;
+        localStorage.setItem("rooms", JSON.stringify(state.rooms));
+    },
+
+    removeManager(state, index) {
+        state.rooms[index].manager = "";
         localStorage.setItem("rooms", JSON.stringify(state.rooms));
     }
 }

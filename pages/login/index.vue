@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <h1>Login</h1>
         <form>
             <label>Email</label>
@@ -23,13 +23,14 @@ export default {
     methods: {
         loginHandler(e) {
             e.preventDefault();
+            console.log('ok')
             let localItems = JSON.parse(localStorage.getItem("users"));
             localItems === null ? 'undefined':
             localItems.forEach((user) => {
                 if(user.email == this.email && user.password == this.password) {
                     const role = user.role;
-                    const name = user.name;
-                    localStorage.setItem("token", JSON.stringify({role, name}));
+                    const email = user.email;
+                    localStorage.setItem("token", JSON.stringify({role, email}));
                     this.$store.commit('editToken', {role, name});
                     this.$router.push('/home');
                 }

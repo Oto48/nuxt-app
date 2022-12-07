@@ -1,31 +1,25 @@
 <template>
     <nav class="bg-black">
         <ul>
-            <li v-if="this.user.role">
-                <NuxtLink to="/profile">Profile</NuxtLink>
-            </li>
-            <li v-if="this.user.role">
+            <li v-if="$store.state.token.role">
                 <NuxtLink to="/rooms">Rooms</NuxtLink>
             </li>
-            <li v-if="this.user.role == 'admin'">
+            <li v-if="$store.state.token.role == 'admin'">
                 <NuxtLink to="/users">Users</NuxtLink>
-            </li>
-            <li v-if="this.user.role">
-                <NuxtLink to="/desks">Desks</NuxtLink>
             </li>
         </ul>
         <ul>
-            <li v-if="!this.user.role">
+            <li v-if="!$store.state.token.role">
                 <NuxtLink to="/login">Login</NuxtLink>
             </li>
-            <li v-if="this.user.role" @click="logOut">
+            <li v-if="$store.state.token.role" @click="logOut">
                 <NuxtLink to="/">Logout</NuxtLink>
             </li>
-            <li v-if="!this.user.role">
+            <li v-if="!$store.state.token.role">
                 <NuxtLink to="/signup">Signup</NuxtLink>
             </li>
-            <li style="color:white" v-if="this.user.role">
-                <NuxtLink to="/">{{this.user.role}}</NuxtLink>
+            <li style="color:white" v-if="$store.state.token.role">
+                {{$store.state.token.role}}
             </li>
         </ul>
     </nav>
@@ -53,6 +47,8 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 5px 25px;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 ul {
@@ -65,8 +61,6 @@ ul {
 
 a {
     text-decoration: none;
-    font-weight: bold;
     color: white;
-    font-size: 20px;
 }
 </style>
