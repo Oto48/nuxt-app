@@ -1,5 +1,12 @@
 # project
 
+## Settings
+
+On the signup page user can create account with client, manager or admin role.
+Client can Book Empty Desk
+Admin can Remove Manager from the room and add new Manager
+
+
 ## Build Setup
 
 ```bash
