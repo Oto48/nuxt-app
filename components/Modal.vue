@@ -1,11 +1,13 @@
 <template>
     <div>
-        <button @click="box = 'active'">btn</button>
+        <button @click="box = 'active'">Add</button>
         <div v-if="box === 'active'" class="modal-overlay">
             <div class="modal">
-                <select>
+                <select v-model="email">
                     <option value="" selected disabled hidden>Choose Role</option>
-                    <option v-for="(room, index) in $store.state.users" :value="index">{{index}}</option>
+                    <template v-for="(user, index) in $store.state.users" :value="index">
+                        <option v-if="(user.role == 'manager' && user.free)" :value="user.email">{{user.email}}</option>
+                    </template>
                 </select>
                 <div class="close">
                     <button @click="remove">Go Home</button>
@@ -83,18 +85,5 @@ h6 {
 p {
     font-size: 16px;
     margin: 20px 0;
-}
-
-button {
-    background-color: #ac003e;
-    width: 70px;
-    height: 40px;
-    color: white;
-    font-size: 16px;
-    border-radius: 16px;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 </style>

@@ -8,7 +8,7 @@
                 <h2>Email</h2>
             </div>
             <div v-for="(user, index) in this.users" :key="index">
-                <div class="card-items text-black capitalize" :class="index == 1 ? 'bg-grey' : 'bg-white border'">
+                <div class="card-items text-black capitalize" :class="index % 2 !== 0 ? 'bg-grey' : 'bg-white border'">
                     <h3>{{index}}</h3>
                     <h3>{{user.name}}</h3>
                     <h3>{{user.email}}</h3>

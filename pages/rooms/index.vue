@@ -27,13 +27,21 @@
                     <h3>{{room.size}}</h3>
                     <h3>{{room.desks.length}}</h3>
                     <h3 v-if="room.full">Full</h3>
-                    <h3 v-if="!$store.state.token.role == 'admin' || !room.manager">{{room.manager}}</h3>
+                    <!-- <h3 v-if="!$store.state.token.role == 'admin' || !room.manager">{{room.manager}}</h3>
                     <div v-else-if="room.manager && $store.state.token.role == 'admin'" class="btn-box">
                         <h3>{{room.manager}}</h3>
                         <button @click="remove(index)">Remove Manager</button>
                     </div>
                     <h3 v-else>{{room.manager}}</h3>
-                    <Modal :index="index" />
+                    <Modal :index="index" /> -->
+                    <div v-if="room.manager && $store.state.token.role == 'admin'" class="btn-box">
+                        <h3>{{room.manager}}</h3>
+                        <button @click="remove(index)">Remove Manager</button>
+                    </div>
+                    <div v-else-if="($store.state.token.role == 'admin' && !room.manager)" class="btn-box">
+                        <Modal :index="index" />
+                    </div>
+                    <h3 v-else>{{room.manager}}</h3>
                     <div class="btn-box">
                         <NuxtLink :to="`/rooms/${index}`"><button>Desks</button></NuxtLink>
                     </div>
