@@ -6,7 +6,7 @@
             <input type="text" v-model="email">
             <label>Password</label>
             <input type="password" v-model="password">
-            <button @click="loginHandler" class="btn-primary">Log In</button>
+            <button @click="loginHandler" class="btn-secondary">Log In</button>
         </form>
     </div>
 </template>
