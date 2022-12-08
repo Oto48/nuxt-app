@@ -34,30 +34,8 @@ export default {
     methods: {
         loginHandler(e) {
             e.preventDefault();
-            let userData;
             const user = {'name': this.name, 'email': this.email, 'password': this.password, 'role': this.role};
-            let localItems = JSON.parse(localStorage.getItem("users"));
-            if(localItems === null) {
-                userData = [];
-                userData.push(user);
-                localStorage.setItem("users", JSON.stringify(userData));
-                this.$router.push('/');
-            } else {
-                userData = localItems;
-                let getUser;
-                localItems.forEach((user) => {
-                    if(user.email == this.email) {
-                        getUser = true;
-                    }
-                });
-                if(getUser) {
-                    alert("email is used !");
-                } else {
-                    userData.push(user);
-                    localStorage.setItem("users", JSON.stringify(userData));
-                    this.$router.push('/');
-                }
-            }
+            this.$store.commit('addUser', user);
         }
     }
 }

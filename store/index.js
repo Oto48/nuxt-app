@@ -8,7 +8,6 @@
 //     }
 // }
 
-
 export const state = () => ({
     token: localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : "",
     rooms: localStorage.getItem("rooms") ? JSON.parse(localStorage.getItem("rooms")) : [
@@ -56,16 +55,42 @@ export const state = () => ({
                 }
             ]
         }
+    ],
+    users: localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [
+        {name: "client", email: "client@gmail.com", password: "client", role: "client"},
+        {name: "manager", email: "manager@gmail.com", password: "manager", role: "manager"},
+        {name: "admin", email: "admin@gmail.com", password: "admin", role: "admin"},
+        {name: "manager2", email: "manager2@gmail.com", password: "manager", role: "manager"}
     ]
 })
 
 export const mutations = {
+    addUser(state, user){
+        let used = false;
+        for(const index in state.users) {
+            if(state.users[index].email == user.email){
+                used = true;
+            }
+        }
+        if(used){
+            alert("Email already used !");
+        } else {
+            state.users.push(user);
+            localStorage.setItem("users", JSON.stringify(state.users));
+        }
+    },
+
     editToken(state, token) {
         state.token = token;
     },
 
     editDesk(state, {roomId, index}) {
         state.rooms[roomId].desks[index].user = state.token.email;
+        localStorage.setItem("rooms", JSON.stringify(state.rooms));
+    },
+
+    addManager(state, {index, manager}) {
+        state.rooms[index].manager = manager;
         localStorage.setItem("rooms", JSON.stringify(state.rooms));
     },
 

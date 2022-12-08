@@ -24,7 +24,7 @@ export default {
         loginHandler(e) {
             e.preventDefault();
             console.log('ok')
-            let localItems = JSON.parse(localStorage.getItem("users"));
+            let localItems = this.$store.state.users;
             localItems === null ? 'undefined':
             localItems.forEach((user) => {
                 if(user.email == this.email && user.password == this.password) {

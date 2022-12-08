@@ -11,7 +11,7 @@
             </div>
             <div v-for="(room, index) in $store.state.rooms" :key="index">
                 <div v-if="$store.state.token.role == 'manager'">
-                    <div v-if="room.manager" class="card-items text-black capitalize" :class="index == 1 ? 'bg-grey' : 'bg-white border'">
+                    <div v-if="(room.manager == $store.state.token.email)" class="card-items text-black capitalize" :class="index == 1 ? 'bg-grey' : 'bg-white border'">
                         <h3>{{index}}</h3>
                         <h3>{{room.size}}</h3>
                         <h3>{{room.desks.length}}</h3>
@@ -33,6 +33,7 @@
                         <button @click="remove(index)">Remove Manager</button>
                     </div>
                     <h3 v-else>{{room.manager}}</h3>
+                    <Modal :index="index" />
                     <div class="btn-box">
                         <NuxtLink :to="`/rooms/${index}`"><button>Desks</button></NuxtLink>
                     </div>
@@ -43,8 +44,15 @@
 </template>
   
 <script>
+import Modal from '~/components/Modal.vue';
 export default {
+    components: { Modal },
     name: 'Rooms',
+    data() {
+        return {
+            showModal: false,
+        }
+    },
     methods: {
         remove(index) {
             this.$store.commit('removeManager', index);
