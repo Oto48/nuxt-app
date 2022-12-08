@@ -3,6 +3,11 @@
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  mounted() {
+    if(this.$store.state.token.role) {
+      this.$router.push('/home');
+    }
+  }
 }
 </script>

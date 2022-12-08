@@ -7,7 +7,7 @@
                 <h3>Price: {{desk.price}}</h3>
                 <h3>Size: {{desk.size}}</h3>
                 <h3>Position: {{desk.position}}</h3>
-                <button v-if="($store.state.token.role == 'client' && !desk.user)" @click="editDesk(roomId,index)">Book a Desk</button>
+                <button v-if="($store.state.token.role == 'client' && !desk.user)" @click="editDesk(roomId,index)" class="btn-secondary">Book a Desk</button>
             </div>
         </div>
     </div>
@@ -19,6 +19,11 @@ export default {
     data() {
         return {
             roomId: this.$route.params.roomId,
+        }
+    },
+    mounted() {
+        if(!this.$store.state.token.role) {
+            this.$router.push('/');
         }
     },
     methods: {

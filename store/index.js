@@ -1,13 +1,3 @@
-// export const state = () => ({
-//     users: []
-// })
-
-// export const mutations = {
-//     ADD_USER(state, user) {
-//         state.users = [{...user}, ...state.users];
-//     }
-// }
-
 export const state = () => ({
     token: localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : "",
     rooms: localStorage.getItem("rooms") ? JSON.parse(localStorage.getItem("rooms")) : [

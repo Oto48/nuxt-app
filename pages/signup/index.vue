@@ -19,7 +19,7 @@
                 <option value="client">Client</option>
             </select>
             <p v-if="!validRole"><span>*</span> Role required</p>
-            <button @click="loginHandler">Sign Up</button>
+            <button @click="loginHandler" class="btn-secondary">Sign Up</button>
         </form>
     </div>
 </template>

@@ -54,6 +54,11 @@ export default {
             showModal: false,
         }
     },
+    mounted() {
+        if(!this.$store.state.token.role) {
+            this.$router.push('/');
+        }
+    },
     methods: {
         remove(index) {
             this.$store.commit('removeManager', index);

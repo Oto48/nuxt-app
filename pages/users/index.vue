@@ -26,6 +26,11 @@ export default {
             users: this.$store.state.users,
         }
     },
+    mounted() {
+        if(this.$store.state.token.role !== "admin" || !this.$store.state.token.role) {
+            this.$router.push('/');
+        }
+    }
 }
 </script>
 
