@@ -39,12 +39,86 @@ export const state = () => ({
                 },
                 {
                     user: "",
+                    price: 50,
+                    size: "big",
+                    position: "Center"
+                },
+                {
+                    user: "",
+                    price: 50,
+                    size: "big",
+                    position: "Center"
+                },
+                {
+                    user: "",
+                    price: 20,
+                    size: "small",
+                    position: "Next to Desk"
+                }
+                ,                {
+                    user: "",
+                    price: 50,
+                    size: "big",
+                    position: "Next to Desk"
+                },
+                {
+                    user: "",
+                    price: 20,
+                    size: "small",
+                    position: "Next to Window"
+                }
+            ]
+        },
+        {
+            manager: "",
+            size: "small",
+            full: false,
+            desks: [
+                {
+                    user: "",
+                    price: 20,
+                    size: "small",
+                    position: "Next to Window"
+                },
+                {
+                    user: "",
+                    price: 50,
+                    size: "big",
+                    position: "Next to Door"
+                },
+                {
+                    user: "",
                     price: 20,
                     size: "small",
                     position: "Center"
                 }
             ]
-        }
+        },
+        {
+            manager: "",
+            size: "small",
+            full: false,
+            desks: [
+                {
+                    user: "",
+                    price: 20,
+                    size: "small",
+                    position: "Next to Window"
+                },
+                {
+                    user: "",
+                    price: 50,
+                    size: "big",
+                    position: "Next to Door"
+                },
+                {
+                    user: "",
+                    price: 20,
+                    size: "small",
+                    position: "Center"
+                }
+            ]
+        },
     ],
     users: localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [
         {name: "client", email: "client@gmail.com", password: "client", role: "client"},

@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-else class="card-items text-black capitalize" :class="index == 1 ? 'bg-grey' : 'bg-white border'">
+                <div v-else class="card-items text-black capitalize" :class="index % 2 !== 0 ? 'bg-grey' : 'bg-white border'">
                     <h3>{{index}}</h3>
                     <h3>{{room.size}}</h3>
                     <h3>{{room.desks.length}}</h3>
