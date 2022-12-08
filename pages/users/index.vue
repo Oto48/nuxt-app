@@ -23,7 +23,7 @@ export default {
     name: 'Users',
     data() {
         return {
-            users: localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : "",
+            users: this.$store.state.users,
         }
     },
 }

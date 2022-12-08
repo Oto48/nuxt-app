@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="box = 'active'">Add</button>
+        <button @click="box = 'active'" class="btn-secondary">Add</button>
         <div v-if="box === 'active'" class="modal-overlay">
             <div class="modal">
                 <select v-model="email">
@@ -9,9 +9,9 @@
                         <option v-if="(user.role == 'manager' && user.free)" :value="user.email">{{user.email}}</option>
                     </template>
                 </select>
-                <div class="close">
-                    <button @click="remove">Go Home</button>
-                    <button @click="add">Add</button>
+                <div class="btn">
+                    <button @click="remove" class="btn-danger">Go Back</button>
+                    <button @click="add" class="btn-secondary">Add</button>
                 </div>
             </div>
         </div>
@@ -57,33 +57,18 @@ export default {
 .modal {
     text-align: center;
     background-color: white;
-    height: 500px;
-    width: 500px;
+    height: 200px;
+    width: 400px;
     margin-top: 10%;
-    padding: 60px 0;
+    padding: 40px;
     border-radius: 20px;
-}
-.close {
-    margin: 10% 0 0 16px;
-    cursor: pointer;
-}
-
-.close-img {
-    width: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
-.check {
-    width: 150px;
-}
-
-h6 {
-    font-weight: 500;
-    font-size: 28px;
-    margin: 20px 0;
-}
-
-p {
-    font-size: 16px;
-    margin: 20px 0;
+.btn {
+    display: flex;
+    justify-content: space-between;
 }
 </style>

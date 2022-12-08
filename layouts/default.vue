@@ -106,6 +106,25 @@ button {
     font-size: 20px;
     display: flex;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid black;
+}
+
+.btn-primary {
+    background: rgb(0, 149, 255);
+    color: white;
+}
+
+.btn-secondary {
+    background: rgb(0, 202, 24);
+    color: white;
+}
+
+.btn-danger {
+    background: rgb(255, 51, 0);
+    color: white;
 }
 
 </style>

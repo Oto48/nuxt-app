@@ -58,9 +58,12 @@ export const state = () => ({
     ],
     users: localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [
         {name: "client", email: "client@gmail.com", password: "client", role: "client"},
+        {name: "client2", email: "client2@gmail.com", password: "client", role: "client"},
+        {name: "client3", email: "client3@gmail.com", password: "client", role: "client"},
         {name: "manager", email: "manager@gmail.com", password: "manager", role: "manager", free: false},
+        {name: "manager2", email: "manager2@gmail.com", password: "manager", role: "manager", free: true},
+        {name: "manager3", email: "manager3@gmail.com", password: "manager", role: "manager", free: true},
         {name: "admin", email: "admin@gmail.com", password: "admin", role: "admin"},
-        {name: "manager2", email: "manager2@gmail.com", password: "manager", role: "manager", free: true}
     ]
 })
 
