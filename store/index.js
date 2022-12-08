@@ -153,7 +153,8 @@ export const mutations = {
     },
 
     editDesk(state, {roomId, index}) {
-        state.rooms[roomId].desks[index].user = state.token.email;
+        const user = JSON.parse(localStorage.getItem("token"));
+        state.rooms[roomId].desks[index].user = user.email;
         localStorage.setItem("rooms", JSON.stringify(state.rooms));
     },
 
