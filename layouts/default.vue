@@ -77,6 +77,12 @@ form{
     align-items: center;
 }
 
+form p {
+    width: 100%;
+    margin: 0;
+    color: red;
+}
+
 input {
     height: 40px;
     width: 100%;

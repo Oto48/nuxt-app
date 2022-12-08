@@ -77,6 +77,7 @@ export const mutations = {
         } else {
             state.users.push(user);
             localStorage.setItem("users", JSON.stringify(state.users));
+            this.$router.push('/');
         }
     },
 
