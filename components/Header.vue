@@ -2,6 +2,9 @@
     <nav class="bg-black">
         <ul>
             <li v-if="$store.state.token.role">
+                <NuxtLink to="/home">Home</NuxtLink>
+            </li>
+            <li v-if="$store.state.token.role">
                 <NuxtLink to="/rooms">Rooms</NuxtLink>
             </li>
             <li v-if="$store.state.token.role == 'admin'">
