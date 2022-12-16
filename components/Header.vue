@@ -75,6 +75,7 @@ nav {
     padding: 5px 25px;
     font-weight: bold;
     font-size: 20px;
+    box-shadow: 3.5px 10px 10px rgb(0 0 0 / 35%);
 }
 
 .hamburger {
@@ -116,6 +117,7 @@ nav {
         width: 100%;
         transition: 0.3s;
         gap: 15px;
+        box-shadow: 3.5px 10px 10px rgb(0 0 0 / 35%);
     }
     .nav-item {
         margin: 16px 0;

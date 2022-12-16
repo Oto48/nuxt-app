@@ -24,6 +24,8 @@ body{
   box-sizing: border-box;
   font-family: sans-serif;
   color: rgb(17, 18, 27);
+  background-color: #252433;
+  color: white;
 }
 
 .bg-black{
@@ -32,6 +34,10 @@ body{
 
 .bg-dark-grey {
     background-color: rgb(68, 68, 68);
+}
+
+.bg-dark-blue {
+    background-color: #37355e;
 }
 
 .bg-grey{

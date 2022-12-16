@@ -11,7 +11,7 @@
             </div>
             <div v-for="(room, index) in $store.state.rooms" :key="index">
                 <div v-if="$store.state.token.role == 'manager'">
-                    <div v-if="(room.manager == $store.state.token.email)" class="card-items text-black capitalize" :class="index == 1 ? 'bg-grey' : 'bg-white border'">
+                    <div v-if="(room.manager == $store.state.token.email)" class="card-items text-black capitalize" :class="index == 1 ? '' : 'bg-dark-blue'">
                         <h3>{{index}}</h3>
                         <h3>{{room.size}}</h3>
                         <h3>{{room.desks.length}}</h3>
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-else class="card-items text-black capitalize" :class="index % 2 !== 0 ? 'bg-grey' : 'bg-white border'">
+                <div v-else class="card-items text-white capitalize" :class="index % 2 !== 0 ? '' : 'bg-dark-blue'">
                     <h3>{{index}}</h3>
                     <h3>{{room.size}}</h3>
                     <h3>{{room.desks.length}}</h3>
@@ -106,6 +106,58 @@ export default {
 
 a{
     text-decoration: none;
+}
+
+@media(max-width: 1024px) {
+    .card-titles h2:nth-child(1), .card-titles h2:nth-child(2), .card-items h3:nth-child(1), .card-items h3:nth-child(2){
+        width: 15%;
+    }
+
+    .card-titles h2:nth-child(4), .card-items h3:nth-child(4){
+        width: 30%;
+        word-wrap: break-word;
+    }
+
+    .card-titles, .card-items{
+        padding: 5px 5px;
+    }
+}
+
+@media(max-width: 768px) {
+    .card-titles {
+        display: none;
+    }
+    .card-items {
+        flex-direction: column;
+        height: auto;
+        gap: 0;
+        background-color: #37355e;
+        max-width: 400px;
+        margin: 20px auto;
+        border: 1px solid #292845;
+        border-radius: 10px;
+        color: white;
+    }
+
+    .card-items h3 {
+        margin: 5px;
+    }
+
+    .card-items h3:nth-child(1)::before {
+        content: "ID: ";
+    }
+
+    .card-items h3:nth-child(3)::before {
+        content: "Free Disks: ";
+    }
+
+    .card-items h3:nth-child(1), .card-items h3:nth-child(2), .card-items h3:nth-child(3), .card-items h3:nth-child(4) {
+        width: 100%;
+    }
+
+    button {
+        margin: 5px;
+    }
 }
 
 </style>
