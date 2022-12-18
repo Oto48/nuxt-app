@@ -27,11 +27,6 @@ export default {
         if(!this.$store.state.token.role) {
             this.$router.push('/');
         }
-    },
-    methods: {
-        editDesk(roomId, index) {
-            this.$store.commit('editDesk', {roomId, index});
-        }
     }
 }
 </script>
