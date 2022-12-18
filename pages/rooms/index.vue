@@ -36,7 +36,7 @@
                     </div>
                     <h3 v-else>{{room.manager}}</h3>
                     <div class="btn-box">
-                        <NuxtLink :to="`/rooms/${index}`"><button class="btn-primary">Desks</button></NuxtLink>
+                        <NuxtLink :to="`/room/${index}`"><button class="btn-primary">Desks</button></NuxtLink>
                     </div>
                 </div>
             </div>
@@ -102,10 +102,6 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px;
-}
-
-a{
-    text-decoration: none;
 }
 
 @media(max-width: 1024px) {

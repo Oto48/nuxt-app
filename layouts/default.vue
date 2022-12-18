@@ -49,7 +49,7 @@ body{
 }
 
 .bg-blue {
-    background-color: rgb(87, 169, 231);
+    background: linear-gradient(103.9deg, rgb(12, 166, 180) 3%, rgb(86, 118, 216) 93.9%);
 }
 
 .text-white {
@@ -113,18 +113,23 @@ button {
     display: flex;
     cursor: pointer;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 5px 10px;
-    border: 1px solid black;
+    font-weight: bold;
+}
+
+a{
+    text-decoration: none;
 }
 
 .btn-primary {
-    background: rgb(0, 149, 255);
+    background: linear-gradient(to right, #3dd0d8 0%, rgba(124, 105, 227, 0.64) 100%);
+    transition: all 0.3s ease-out;
     color: white;
 }
 
 .btn-secondary {
-    background: rgb(0, 202, 24);
+    background: linear-gradient(to right, #32d001 0%, rgba(169, 231, 0, 0.64) 100%);
     color: white;
 }
 

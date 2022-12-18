@@ -76,6 +76,7 @@ nav {
     font-weight: bold;
     font-size: 20px;
     box-shadow: 3.5px 10px 10px rgb(0 0 0 / 35%);
+    margin-bottom: 50px;
 }
 
 .hamburger {

@@ -127,7 +127,7 @@ export const state = () => ({
         {name: "manager", email: "manager@gmail.com", password: "manager", role: "manager", free: false},
         {name: "manager2", email: "manager2@gmail.com", password: "manager", role: "manager", free: true},
         {name: "manager3", email: "manager3@gmail.com", password: "manager", role: "manager", free: true},
-        {name: "admin", email: "admin@gmail.com", password: "admin", role: "admin"},
+        {name: "admin", email: "admin@example.com", password: "admin", role: "admin"},
     ]
 })
 

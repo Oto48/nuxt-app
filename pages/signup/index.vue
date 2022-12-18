@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <h1>Signup</h1>
         <form>
             <label>Name</label>
@@ -14,7 +14,6 @@
             <label>Role</label>
             <select v-model="role">
                 <option value="" selected disabled hidden>Choose Role</option>
-                <option value="admin">Admin</option>
                 <option value="manager">Room manager</option>
                 <option value="client">Client</option>
             </select>
