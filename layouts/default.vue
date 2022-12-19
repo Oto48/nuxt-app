@@ -44,8 +44,12 @@ body{
     background-color: rgb(68, 68, 68);
 }
 
+.bg-blue {
+    background-color: rgb(52, 97, 174);
+}
+
 .bg-dark-blue {
-    background-color: #37355e;
+    background-color: rgb(67, 71, 125);
 }
 
 .bg-grey{
@@ -54,10 +58,6 @@ body{
 
 .bg-white {
     background-color: rgb(255, 255, 255);
-}
-
-.bg-blue {
-    background: linear-gradient(103.9deg, rgb(12, 166, 180) 3%, rgb(86, 118, 216) 93.9%);
 }
 
 .text-white {
@@ -137,7 +137,7 @@ a{
 }
 
 .btn-secondary {
-    background: linear-gradient(to right, #32d001 0%, rgba(169, 231, 0, 0.64) 100%);
+    background: linear-gradient(to right, #2db902 0%, rgba(169, 231, 0, 0.64) 100%);
     color: white;
 }
 

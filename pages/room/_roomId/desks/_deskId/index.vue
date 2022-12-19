@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="room-card">
+        <div class="room-card bg-dark-blue">
             <h2 v-if="$store.state.token.role == 'client' && $store.state.rooms[roomId].desks[deskId].user && $store.state.token.email !== $store.state.rooms[roomId].desks[deskId].user" class="danger auto">The room is already booked</h2>
             <h1>Room {{ deskId }}</h1>
             <h3>Room User: {{ $store.state.rooms[roomId].desks[deskId].user }}</h3>
@@ -41,7 +41,6 @@ export default {
     display: flex;
     max-width: 500px;
     flex-direction: column;
-    background-color: rgb(67, 71, 125);
     margin: auto;
     border-radius: 10px;
     padding: 10px 20px;

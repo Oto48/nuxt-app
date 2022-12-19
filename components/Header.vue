@@ -1,5 +1,5 @@
 <template>
-    <nav class="bg-black">
+    <nav class="bg-black" @click="show">
         <div class="hamburger"
             :class="{ active: showMobileMenu }"
             @click="showMobileMenu = !showMobileMenu"
@@ -56,6 +56,9 @@ export default {
             if(e.currentTarget.innerWidth > 768){
                 this.showMobileMenu = false;
             }
+        },
+        show(e) {
+            e.target.tagName === "A" ? this.showMobileMenu = false : '';
         }
     },
     created() {

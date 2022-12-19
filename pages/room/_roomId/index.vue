@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="room-card">
+        <div class="room-card bg-dark-blue">
             <h1>Room {{ roomId }}</h1>
             <div>
                 <h3>Room Manager: {{ $store.state.rooms[roomId].manager }}</h3>
@@ -36,7 +36,6 @@ export default {
     display: flex;
     max-width: 500px;
     flex-direction: column;
-    background-color: rgb(67, 71, 125);
     margin: auto;
     border-radius: 10px;
     padding: 10px 20px;
