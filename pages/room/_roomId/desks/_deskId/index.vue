@@ -8,7 +8,7 @@
             <h3>Room Size: {{ $store.state.rooms[roomId].desks[deskId].size }}</h3>
             <h3>Room Position: {{ $store.state.rooms[roomId].desks[deskId].position }}</h3>
             <div class="btn-box">
-                <button v-if="($store.state.token.role == 'client' && !$store.state.rooms[roomId].desks[deskId].user)" @click="editDesk(roomId,deskId)" class="btn-secondary">Checkout Desks</button>
+                <button v-if="($store.state.token.role == 'client' && !$store.state.rooms[roomId].desks[deskId].user)" @click="editDesk(roomId,deskId)" class="btn-secondary">Book the Desk</button>
             </div>
         </div>
     </div>
