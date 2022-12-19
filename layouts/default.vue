@@ -28,6 +28,14 @@ body{
   color: white;
 }
 
+.danger {
+    color: red;
+}
+
+.auto {
+    margin: auto;
+}
+
 .bg-black{
     background-color: rgb(44, 40, 40);
 }

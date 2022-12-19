@@ -18,7 +18,7 @@
                         <h3 v-if="room.full">Full</h3>
                         <h3>{{room.manager}}</h3>
                         <div class="btn-box">
-                            <NuxtLink :to="`/rooms/${index}`"><button>Desks</button></NuxtLink>
+                            <NuxtLink :to="`/rooms/${index}`"><button>Details</button></NuxtLink>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     </div>
                     <h3 v-else>{{room.manager}}</h3>
                     <div class="btn-box">
-                        <NuxtLink :to="`/room/${index}`"><button class="btn-primary">Desks</button></NuxtLink>
+                        <NuxtLink :to="`/room/${index}`"><button class="btn-primary">Details</button></NuxtLink>
                     </div>
                 </div>
             </div>

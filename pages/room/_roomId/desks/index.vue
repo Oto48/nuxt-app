@@ -7,7 +7,9 @@
                 <h3>Price: {{desk.price}}</h3>
                 <h3>Size: {{desk.size}}</h3>
                 <h3>Position: {{desk.position}}</h3>
-                <button v-if="($store.state.token.role == 'client' && !desk.user)" @click="editDesk(roomId,index)" class="btn-secondary">Book a Desk</button>
+                <NuxtLink :to="`desks/${index}`">
+                    <button class="btn-secondary">Details</button>
+                </NuxtLink>
             </div>
         </div>
     </div>
@@ -15,7 +17,7 @@
   
 <script>
 export default {
-    name: 'Room',
+    name: 'Desks',
     data() {
         return {
             roomId: this.$route.params.roomId,
@@ -24,11 +26,6 @@ export default {
     mounted() {
         if(!this.$store.state.token.role) {
             this.$router.push('/');
-        }
-    },
-    methods: {
-        editDesk(roomId, index) {
-            this.$store.commit('editDesk', {roomId, index});
         }
     }
 }
