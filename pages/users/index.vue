@@ -8,7 +8,7 @@
                 <h2>Email</h2>
             </div>
             <div v-for="(user, index) in this.users" :key="index">
-                <div class="card-items text-black capitalize" :class="index % 2 !== 0 ? 'bg-grey' : 'bg-white border'">
+                <div class="card-items text-white capitalize" :class="index % 2 !== 0 ?  '' : 'bg-dark-blue'">
                     <h3>{{index}}</h3>
                     <h3>{{user.name}}</h3>
                     <h3>{{user.email}}</h3>
@@ -58,5 +58,53 @@ export default {
 
 a{
     text-decoration: none;
+}
+
+@media(max-width: 1024px) {
+    .card-titles h2:nth-child(1), .card-titles h2:nth-child(2), .card-items h3:nth-child(1), .card-items h3:nth-child(2){
+        width: 15%;
+    }
+
+    .card-titles h2:nth-child(3), .card-items h3:nth-child(3){
+        width: 40%;
+        word-wrap: break-word;
+    }
+}
+
+@media(max-width: 768px) {
+    .card-titles {
+        display: none;
+    }
+    .card-items {
+        flex-direction: column;
+        height: auto;
+        gap: 0;
+        background-color: #37355e;
+        max-width: 400px;
+        margin: 20px auto;
+        border: 1px solid #292845;
+        border-radius: 10px;
+        color: white;
+    }
+
+    .card-items h3 {
+        margin: 5px;
+    }
+
+    .card-items h3:nth-child(1)::before {
+        content: "ID: ";
+    }
+
+    .card-items h3:nth-child(2)::before {
+        content: "Name: ";
+    }
+
+    .card-items h3:nth-child(3)::before {
+        content: "Email: ";
+    }
+
+    .card-items h3:nth-child(1), .card-items h3:nth-child(2), .card-items h3:nth-child(3), .card-items h3:nth-child(4) {
+        width: 100%;
+    }
 }
 </style>
