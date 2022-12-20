@@ -27,11 +27,11 @@
                     <h3>{{room.size}}</h3>
                     <h3>{{room.desks.length}}</h3>
                     <h3 v-if="room.full">Full</h3>
-                    <div v-if="room.manager && $store.state.token.role == 'admin'" class="btn-box">
+                    <div v-if="room.manager && $store.state.token.role == 'admin'" class="hidden-btn btn-box">
                         <h3>{{room.manager}}</h3>
                         <button @click="remove(index)" class="btn-danger">Remove Manager</button>
                     </div>
-                    <div v-else-if="($store.state.token.role == 'admin' && !room.manager)" class="btn-box">
+                    <div v-else-if="($store.state.token.role == 'admin' && !room.manager)" class="hidden-btn btn-box">
                         <Modal :index="index" />
                     </div>
                     <h3 v-else>{{room.manager}}</h3>
@@ -88,6 +88,10 @@ export default {
     gap: 10px;
 }
 
+.hidden-btn {
+    word-wrap: break-word;
+}
+
 .btn-box h3{
     width: 100%;
     margin: 0;
@@ -105,17 +109,21 @@ export default {
 }
 
 @media(max-width: 1024px) {
-    .card-titles h2:nth-child(1), .card-titles h2:nth-child(2), .card-items h3:nth-child(1), .card-items h3:nth-child(2){
+    .card-titles > h2:nth-child(1), .card-titles > h2:nth-child(2), .card-items > h3:nth-child(1), .card-items > h3:nth-child(2){
         width: 15%;
     }
 
-    .card-titles h2:nth-child(4), .card-items h3:nth-child(4){
+    .card-titles h2:nth-child(4), .card-items h3:nth-child(4) {
         width: 30%;
         word-wrap: break-word;
     }
 
     .card-titles, .card-items{
         padding: 5px 5px;
+    }
+
+    .hidden-btn {
+        width: 30%;
     }
 }
 
@@ -139,15 +147,15 @@ export default {
         margin: 5px;
     }
 
-    .card-items h3:nth-child(1)::before {
+    .card-items > h3:nth-child(1)::before {
         content: "ID: ";
     }
 
-    .card-items h3:nth-child(3)::before {
+    .card-items > h3:nth-child(3)::before {
         content: "Free Disks: ";
     }
 
-    .card-items h3:nth-child(1), .card-items h3:nth-child(2), .card-items h3:nth-child(3), .card-items h3:nth-child(4) {
+    .card-items > h3:nth-child(1), .card-items > h3:nth-child(2), .card-items > h3:nth-child(3), .card-items > h3:nth-child(4), .hidden-btn {
         width: 100%;
     }
 
