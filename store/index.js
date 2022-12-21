@@ -4,7 +4,6 @@ export const state = () => ({
         {
             manager: "manager@gmail.com",
             size: "small",
-            full: false,
             desks: [
                 {
                     user: "",
@@ -29,7 +28,6 @@ export const state = () => ({
         {
             manager: "",
             size: "big",
-            full: false,
             desks: [
                 {
                     user: "",
@@ -72,7 +70,6 @@ export const state = () => ({
         {
             manager: "",
             size: "small",
-            full: false,
             desks: [
                 {
                     user: "",
@@ -97,7 +94,6 @@ export const state = () => ({
         {
             manager: "",
             size: "small",
-            full: false,
             desks: [
                 {
                     user: "",

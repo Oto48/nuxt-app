@@ -20,6 +20,9 @@
             <li v-if="$store.state.token.role == 'admin'">
                 <NuxtLink to="/users">Users</NuxtLink>
             </li>
+            <li v-if="$store.state.token.role == 'admin'">
+                <NuxtLink to="/desks">Desks</NuxtLink>
+            </li>
         </ul>
         <ul>
             <li v-if="!$store.state.token.role">
@@ -29,7 +32,7 @@
                 <NuxtLink to="/">Logout</NuxtLink>
             </li>
             <li v-if="!$store.state.token.role">
-                <NuxtLink to="/signup">Signup</NuxtLink>
+                <NuxtLink to="/register">Register</NuxtLink>
             </li>
             <li style="color:white" v-if="$store.state.token.role">
                 {{$store.state.token.role}}

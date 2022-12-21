@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>Signup</h1>
+        <h1>Register</h1>
         <form>
             <label>Name</label>
             <input type="text" v-model="name" required>
