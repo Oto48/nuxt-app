@@ -148,9 +148,10 @@ export const mutations = {
         state.token = token;
     },
 
-    editDesk(state, {roomId, deskId}) {
+    editDesk(state, {roomId, deskId, date}) {
         const user = JSON.parse(localStorage.getItem("token"));
         state.rooms[roomId].desks[deskId].user = user.email;
+        state.rooms[roomId].desks[deskId].is_taken = date;
         localStorage.setItem("rooms", JSON.stringify(state.rooms));
     },
 

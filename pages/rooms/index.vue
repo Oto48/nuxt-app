@@ -88,6 +88,10 @@ export default {
     gap: 10px;
 }
 
+.card-titles h2:nth-child(4), .hidden-btn{
+    width: 25%;
+}
+
 .hidden-btn {
     word-wrap: break-word;
 }
