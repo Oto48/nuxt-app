@@ -10,6 +10,7 @@
                     <h2>Price</h2>
                     <h2>Size</h2>
                     <h2>Position</h2>
+                    <h2>Is Taken</h2>
                 </div>
                 <div v-for="(desk, index) in room.desks" :key="index">
                     <div class="card-items text-white capitalize" :class="index % 2 !== 0 ? '' : 'bg-dark-blue'">
@@ -18,6 +19,7 @@
                         <h3>{{desk.price}}</h3>
                         <h3>{{desk.size}}</h3>
                         <h3>{{desk.position}}</h3>
+                        <h3>{{desk.is_taken}}</h3>
                     </div>
                 </div>
             </div>
@@ -46,7 +48,7 @@ export default {
 <style scoped>
 
 .card {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -58,9 +60,14 @@ export default {
     text-align: center;
 }
 
-.card-titles h2, .card-items h3{
-    width: 20%;
+.card-titles > h2, .card-items > h3{
+    width: 10%;
+    word-wrap: break-word;
     text-align: center;
+}
+
+.card-titles > h2:nth-child(2), .card-titles > h2:nth-child(5), .card-titles > h2:nth-child(6), .card-items > h3:nth-child(2), .card-items > h3:nth-child(5), .card-items > h3:nth-child(6){
+    width: 25%;
 }
 
 .card-titles, .card-items{
@@ -69,21 +76,6 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px;
-}
-
-@media(max-width: 1024px) {
-    .card-titles > h2:nth-child(1), .card-titles > h2:nth-child(3), .card-items > h3:nth-child(1), .card-items > h3:nth-child(3){
-        width: 15%;
-    }
-
-    .card-titles h2:nth-child(2), .card-items h3:nth-child(2), .card-titles h2:nth-child(5), .card-items h3:nth-child(5) {
-        width: 25%;
-        word-wrap: break-word;
-    }
-
-    .card-titles, .card-items{
-        padding: 5px 5px;
-    }
 }
 
 @media(max-width: 768px) {
